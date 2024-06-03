@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import Header from './components/header.jsx';
 import Footer from './components/footer.jsx';
-import './index.css';
+import './styles/index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
