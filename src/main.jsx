@@ -7,8 +7,16 @@ import './styles/index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <Header />
-        <App />
-        <Footer />
+        <div className='flex flex-col h-screen justify-between'>
+            <header className='container mx-auto h-20'>
+                <Header />
+            </header>
+            <main className='container px-20 mx-auto mb-auto grow'>
+                <App />
+            </main>
+            <footer className='container mx-auto h-12'>
+                <Footer />
+            </footer>
+        </div>
     </React.StrictMode>
 );
