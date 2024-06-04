@@ -1,20 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import App from './App.jsx';
-import Blog from './pages/Blog.jsx';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
-import ErrorPage from './pages/ErrorPage.jsx';
+import routes from './routes/routes.jsx';
 import './styles/index.css';
 
-const router = createBrowserRouter([
-    { path: '/', element: <App />, errorElement: <ErrorPage /> },
-    {
-        path: 'blog/:PostId',
-        element: <Blog />,
-    },
-]);
+const router = createBrowserRouter(routes);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
