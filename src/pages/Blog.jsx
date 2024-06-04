@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { fetchAllBlogPosts } from '../api';
 import DefaultArticle from '../components/DefaultArticle';
 import Popeye from '../components/Popeye';
 import Spinach from '../components/Spinach';
