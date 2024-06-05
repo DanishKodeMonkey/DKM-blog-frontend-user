@@ -1,5 +1,13 @@
 const API_URL = import.meta.env.VITE_API_URL;
 
+// Security: Check for, and include JWT token on API requests
+// Use for protected API routes.
+const getAuthHeaders = () => {
+    const token = localStorage.getItem('token');
+    // Was a token found? If so attach, otherwise dont.
+    return token ? { Authorization: `Bearer ${token}` } : {};
+};
+
 /// BLOG POSTS ///
 // fetch all blog posts
 export const fetchAllBlogPosts = async () => {
@@ -33,7 +41,7 @@ export const createUser = async (user) => {
 /// AUTH ///
 
 // Sign in user
-export const signIn = async (user) => {
+export const signInUser = async (user) => {
     const response = await fetch(`${API_URL}/auth/sign-in`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
