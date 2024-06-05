@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { AuthProvider } from './AuthContext.jsx';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import routes from './routes/routes.jsx';
