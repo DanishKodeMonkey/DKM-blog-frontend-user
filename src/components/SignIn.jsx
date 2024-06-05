@@ -1,19 +1,22 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { signIn } from '../api';
+import { signInUser } from '../api';
+import AuthContext from '../AuthContext';
 
 const SignIn = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    // use signIn from AuthContext
+    const { handleSignInToken } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await signIn({ username, password });
-            console.log(response);
-
+            const response = await signInUser({ username, password });
+            // send token to auth context for handling
+            handleSignInToken(response.token);
             navigate('/');
         } catch (err) {
             setError('Sign in failed');
