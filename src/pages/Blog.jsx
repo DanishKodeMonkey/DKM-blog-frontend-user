@@ -2,9 +2,11 @@ import { useEffect, useState } from 'react';
 import { fetchAllBlogPosts } from '../api';
 import DefaultArticle from '../components/DefaultArticle';
 
-const Blog = () => {
+// custom hook
+const AllBlogPosts = () => {
     const [posts, setPosts] = useState([]);
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const getPosts = async () => {
@@ -14,17 +16,20 @@ const Blog = () => {
                 setPosts(data);
             } catch (err) {
                 setError(err.message);
+            } finally {
+                setLoading(false);
             }
         };
         getPosts();
     }, []);
-    if (error) {
-        return <p>Error: {error}</p>;
-    }
+    return { posts, error, loading };
+};
+const Blog = () => {
+    const { posts, error, loading } = AllBlogPosts();
 
-    if (posts.length === 0) {
-        return <DefaultArticle />;
-    }
+    if (loading) return <p>Loading... please wait.</p>;
+    if (error) return <p>A network error was encountered.</p>;
+    if (posts <= 0) return <DefaultArticle />;
 
     return (
         <div>
