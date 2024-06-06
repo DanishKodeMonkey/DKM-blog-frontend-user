@@ -4,6 +4,7 @@ import Blog from '../pages/Blog';
 import SignIn from '../components/SignIn';
 import SignUp from '../components/SignUp';
 import ErrorPage from '../pages/ErrorPage';
+import UserPage from '../pages/User';
 
 const routes = [
     {
@@ -18,6 +19,10 @@ const routes = [
             {
                 path: '/blog',
                 element: <Blog />,
+            },
+            {
+                path: '/user/',
+                element: <UserPage />,
             },
             {
                 path: '/user/signin',
