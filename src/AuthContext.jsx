@@ -15,6 +15,8 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
     const handleSignInToken = (token) => {
+        // remove existing tokens on sign in
+        localStorage.removeItem('token');
         // set token to storage on sign in
         setIsAuthenticated(true);
         localStorage.setItem('token', token);
