@@ -5,11 +5,11 @@ import './styles/index.css';
 
 function App() {
     return (
-        <div className='flex flex-col justify-between h-screen'>
-            <header className='h-20 mb-10'>
+        <div className='flex flex-col justify-between h-screen bg-slate-500'>
+            <header className='h-20 mb-7 my'>
                 <Header />
             </header>
-            <main className='container mx-auto mb-auto grow'>
+            <main className='flex-grow flex justify-center'>
                 <Outlet />
             </main>
             <footer className='h-12'>
