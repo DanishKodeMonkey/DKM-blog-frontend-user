@@ -52,23 +52,6 @@ const UserPage = () => {
         }
     };
 
-    /* 
-    const handleChange = (e) => {
-        setUserData({ ...userData, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            console.log('sending userData to updateUser', userData);
-            await updateUser(userData);
-            const updatedData = await fetchCurrentUser();
-            setUserData(updatedData);
-        } catch (error) {
-            console.error('Error updating user: ', error);
-        }
-    }; */
-
     return (
         <div>
             <h1>User Page</h1>
