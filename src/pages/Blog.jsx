@@ -34,37 +34,85 @@ const Blog = () => {
     if (posts <= 0) return <DefaultArticle />;
 
     return (
-        <div className='blog-container'>
-            <BlogSidebar
-                posts={posts}
-                onSelectPost={handleSelectPost}
-            />
-            <div className='main-content'>
-                <h1>Blog posts</h1>
-                {selectedPost ? (
-                    <div key={selectedPost._id}>
-                        <h2>{selectedPost.title}</h2>
-                        <p>{selectedPost.text}</p>
+        <div className='flex bg-white w-full'>
+            <div className='w-1/6 p-4 border-r bg-gray-100'>
+                <BlogSidebar
+                    posts={posts}
+                    onSelectPost={handleSelectPost}
+                    selectedPost={selectedPost}
+                />
+            </div>
+            <div className='w-5/6 p-4'>
+                <h1 className='text-2xl font-bold mb-4 w-full'>
+                    The journey of a danish Kode Monkey
+                </h1>
+                <hr />
+                <br />
+                <div className='flex'>
+                    {selectedPost ? (
+                        <div
+                            key={selectedPost._id}
+                            className='mt-2 mb-4 p-2 border rounded-lg bg-slate-100 w-full'
+                        >
+                            <div className='text-center'>
+                                <h2 className='text-xl font-semibold'>
+                                    {selectedPost.title}
+                                </h2>
+
+                                <p className='mt-2 mb-4'>{selectedPost.text}</p>
+                                <h4 className='text-sm text-slate-800'>
+                                    author - {selectedPost.author.username}
+                                </h4>
+                                <p className='text-sm text-gray-500'>
+                                    {new Date(
+                                        selectedPost.timestamp
+                                    ).toLocaleString()}
+                                </p>
+                            </div>
+                            <div>
+                                <h3 className='text-lg font-semibold'>
+                                    comments:
+                                </h3>
+                                {selectedPost.comments.map((comment) => (
+                                    <div
+                                        key={comment._id}
+                                        className='mt-2 mb-4 p-2 border rounded-lg bg-gray-50 max-w-lg'
+                                    >
+                                        <h4>{comment.author.username}</h4>
+                                        <p>{comment.text}</p>
+                                        <p className='text-sm text-gray-500'>
+                                            {new Date(
+                                                comment.timestamp
+                                            ).toLocaleString()}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ) : (
                         <div>
-                            <h3>comments:</h3>
-                            {selectedPost.comments.map((comment) => (
-                                <div key={comment._id}>
-                                    <p>{comment.text}</p>
-                                    <p>{comment.timestamp}</p>
+                            {posts.map((post) => (
+                                <div
+                                    key={post._id}
+                                    className='mt-2 mb-4 p-2 border rounded-lg bg-slate-100'
+                                >
+                                    <h2 className='text-xl font-semibold'>
+                                        {post.title}
+                                    </h2>
+                                    <h4 className='text-sm text-slate-800'>
+                                        {post.author.username}
+                                    </h4>
+                                    <p className='mt-2'>{post.text}</p>
+                                    <p className='text-sm text-gray-500'>
+                                        {new Date(
+                                            post.timestamp
+                                        ).toLocaleString()}
+                                    </p>
                                 </div>
                             ))}
                         </div>
-                    </div>
-                ) : (
-                    <div>
-                        {posts.map((post) => (
-                            <div key={post._id}>
-                                <h2>{post.title}</h2>
-                                <p>{post.text}</p>
-                            </div>
-                        ))}
-                    </div>
-                )}
+                    )}
+                </div>
             </div>
         </div>
     );
