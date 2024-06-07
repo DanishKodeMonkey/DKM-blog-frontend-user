@@ -9,6 +9,7 @@ export const AuthProvider = ({ children }) => {
         // try to fetch token from local
         const token = localStorage.getItem('token');
         if (token) {
+            console.warn('Token found, user authenticated');
             setIsAuthenticated(true);
         }
         // do this on mount
