@@ -53,59 +53,97 @@ const UserPage = () => {
     };
 
     return (
-        <div>
-            <h1>User Page</h1>
+        <div className='flex flex-col items-center bg-white w-full p-4'>
+            <h1 className='text-3xl font-bold mb-6'>User Page</h1>
             {userData ? (
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <label htmlFor='username'>Username:</label>
+                <form
+                    onSubmit={handleSubmit}
+                    className='w-full max-w-md bg-gray-100 p-6 rounded-lg shadow-md'
+                >
+                    <div className='mb-4'>
+                        <label
+                            htmlFor='username'
+                            className='form-label'
+                        >
+                            Username:
+                        </label>
                         <input
                             type='text'
                             id='username'
                             name='username'
                             defaultValue={userData?.username}
+                            className='form-input'
                         />
                     </div>
                     <div>
-                        <label htmlFor='firstName'>First Name:</label>
+                        <label
+                            htmlFor='firstName'
+                            className='form-label'
+                        >
+                            First Name:
+                        </label>
                         <input
                             type='text'
                             id='first_name'
                             name='first_name'
                             defaultValue={userData?.first_name}
+                            className='form-input'
                         />
                     </div>
                     <div>
-                        <label htmlFor='lastName'>Last Name:</label>
+                        <label
+                            htmlFor='lastName'
+                            className='form-label'
+                        >
+                            Last Name:
+                        </label>
                         <input
                             type='text'
                             id='last_name'
                             name='last_name'
                             defaultValue={userData?.last_name}
+                            className='form-input'
                         />
                     </div>
                     <div>
-                        <label htmlFor='email'>Email:</label>
+                        <label
+                            htmlFor='email'
+                            className='form-label'
+                        >
+                            Email:
+                        </label>
                         <input
                             type='email'
                             id='email'
                             name='email'
                             defaultValue={userData?.email}
+                            className='form-input'
                         />
                     </div>
                     <div>
-                        <label htmlFor='password'>Password:</label>
+                        <label
+                            htmlFor='password'
+                            className='form-label'
+                        >
+                            Password:
+                        </label>
                         <input
                             type='password'
                             id='password'
                             name='password'
                             placeholder='Enter new passwordd'
+                            className='form-input'
                         />
                     </div>
-                    <button type='submit'>Update</button>
+                    <button
+                        type='submit'
+                        className='w-full bg-teal-500 text-white font-bold py-2 px-4 rounded hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-opacity-50 transition ease-in-out duration-150'
+                    >
+                        Update
+                    </button>
                 </form>
             ) : (
-                <p>Loading...</p>
+                <p className='text-center text-gray-500'>Loading...</p>
             )}
         </div>
     );
