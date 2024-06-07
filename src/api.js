@@ -1,4 +1,5 @@
 import { jwtDecode } from 'jwt-decode';
+import axios from 'axios';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -58,7 +59,7 @@ export const createUser = async (user) => {
 
 // Fetch current users information
 export const fetchCurrentUser = async () => {
-    console.warn('FetchCurrentUser triggere ---');
+    console.warn('FetchCurrentUser triggered ---');
     const userId = getUserIdFromToken();
     console.log('Received userId');
     if (!userId) {
@@ -86,6 +87,21 @@ export const fetchCurrentUser = async () => {
     } catch (error) {
         console.error('Error fetching current user data: ', error);
         throw error;
+    }
+};
+
+// Update current user information
+
+export const updateUser = async (userData) => {
+    try {
+        const response = await axios.put(
+            `${API_URL}/users/${userData._id}`,
+            userData,
+            { headers: getAuthHeaders() }
+        );
+        return response.data;
+    } catch (error) {
+        throw new Error('Error updating user ', error.message);
     }
 };
 
