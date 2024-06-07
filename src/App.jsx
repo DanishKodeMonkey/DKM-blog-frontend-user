@@ -6,7 +6,7 @@ import './styles/index.css';
 function App() {
     return (
         <div className='flex flex-col justify-between h-screen'>
-            <header className='h-20'>
+            <header className='h-20 mb-10'>
                 <Header />
             </header>
             <main className='container mx-auto mb-auto grow'>

@@ -1,6 +1,6 @@
 function Footer() {
     return (
-        <div className='bg-gradient-to-r from-orange-200 from-0% via-orange-400 to-orange-200 to-100% text-center w-screen'>
+        <div className='bg-gradient-to-r from-orange-200 from-0% via-orange-400 to-orange-200 to-100% text-center w-screen border-t-4 border-teal-200'>
             <p>
                 By danishKodeMonkey@
                 <a href='https://github.com/DanishKodeMonkey'>GitHub.com</a>

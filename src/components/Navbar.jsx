@@ -3,49 +3,55 @@ import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
     return (
-        <nav>
-            <NavLink
-                to={'/'}
-                className={({ isActive, isPending }) =>
-                    isPending ? 'pending' : isActive ? 'active' : ''
-                }
+        <nav
+            id='navbar'
+            className=' border-b'
+        >
+            <div
+                id='navlinkcontainer'
+                className='flex items-center justify-center border-b-4 border-teal-200'
             >
-                Home
-            </NavLink>
-            <NavLink
-                to={'/blog'}
-                className={({ isActive, isPending }) =>
-                    isPending ? 'pending' : isActive ? 'active' : ''
-                }
-            >
-                Blog
-            </NavLink>
-
-            <NavLink
-                to={'/user'}
-                className={({ isActive, isPending }) =>
-                    isPending ? 'pending' : isActive ? 'active' : ''
-                }
-            >
-                User
-            </NavLink>
-
-            <NavLink
-                to={'/user/signin'}
-                className={({ isActive, isPending }) =>
-                    isPending ? 'pending' : isActive ? 'active' : ''
-                }
-            >
-                Sign in
-            </NavLink>
-            <NavLink
-                to={'/user/signup'}
-                className={({ isActive, isPending }) =>
-                    isPending ? 'pending' : isActive ? 'active' : ''
-                }
-            >
-                Sign up
-            </NavLink>
+                <NavLink
+                    to={'/'}
+                    className={
+                        'text-white text-lg font-semibold mr-6 hover:text-teal-400'
+                    }
+                >
+                    Home
+                </NavLink>
+                <NavLink
+                    to={'/blog'}
+                    className={
+                        'text-white text-lg font-semibold mr-6 hover:text-teal-400'
+                    }
+                >
+                    Blog
+                </NavLink>
+                <NavLink
+                    to={'/user'}
+                    className={
+                        'text-white text-lg font-semibold mr-6 hover:text-teal-400'
+                    }
+                >
+                    User
+                </NavLink>
+                <NavLink
+                    to={'/user/signin'}
+                    className={
+                        'text-white text-lg font-semibold mr-6 hover:text-teal-400'
+                    }
+                >
+                    Sign in
+                </NavLink>
+                <NavLink
+                    to={'/user/signup'}
+                    className={
+                        'text-white text-lg font-semibold mr-6 hover:text-teal-400'
+                    }
+                >
+                    Sign up
+                </NavLink>
+            </div>
         </nav>
     );
 };

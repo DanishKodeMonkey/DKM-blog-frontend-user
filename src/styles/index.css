@@ -4,3 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
+#navbar .active{
+    @apply bg-teal-300 hover:bg-teal-400 text-black font-bold py-2 px-4 rounded-t-2xl transition-colors duration-100 ease-in-out;
+}
