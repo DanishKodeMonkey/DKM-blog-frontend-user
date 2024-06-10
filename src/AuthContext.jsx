@@ -24,8 +24,8 @@ export const AuthProvider = ({ children }) => {
     };
 
     const handleSignOutToken = () => {
-        setIsAuthenticated(false);
         localStorage.removeItem('token');
+        setIsAuthenticated(false);
     };
 
     // wrap this component to all children components, w
