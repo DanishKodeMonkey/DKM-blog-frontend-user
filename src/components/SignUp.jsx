@@ -39,7 +39,8 @@ const SignUp = () => {
                 onSubmit={handleSubmit}
                 className='w-full max-w-md bg-gray-100 p-6 rounded-lg shadow-md'
             >
-                <div>
+                <div className='mb-4'>
+                    {' '}
                     <label
                         htmlFor='username'
                         className='form-label'
@@ -54,7 +55,8 @@ const SignUp = () => {
                         className='form-input'
                     />
                 </div>
-                <div>
+                <div className='mb-4'>
+                    {' '}
                     <label
                         htmlFor='first_name'
                         className='form-label'
@@ -69,7 +71,8 @@ const SignUp = () => {
                         className='form-input'
                     />
                 </div>
-                <div>
+                <div className='mb-4'>
+                    {' '}
                     <label
                         htmlFor='last_name'
                         className='form-label'
@@ -84,7 +87,8 @@ const SignUp = () => {
                         className='form-input'
                     />
                 </div>
-                <div>
+                <div className='mb-4'>
+                    {' '}
                     <label
                         htmlFor='email'
                         className='form-label'
@@ -99,7 +103,8 @@ const SignUp = () => {
                         className='form-input'
                     />
                 </div>
-                <div>
+                <div className='mb-4'>
+                    {' '}
                     <label
                         htmlFor='password'
                         className='form-label'
@@ -114,7 +119,8 @@ const SignUp = () => {
                         className='form-input'
                     />
                 </div>
-                <div>
+                <div className='mb-4'>
+                    {' '}
                     <label
                         htmlFor='confirm_password'
                         className='form-label'
