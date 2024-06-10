@@ -90,11 +90,11 @@ const Blog = () => {
                             </div>
                         </div>
                     ) : (
-                        <div>
+                        <>
                             {posts.map((post) => (
                                 <div
                                     key={post._id}
-                                    className='mt-2 mb-4 p-2 border rounded-lg bg-slate-100'
+                                    className='mt-2 mb-4 p-2 border rounded-lg bg-slate-100 w-full'
                                 >
                                     <h2 className='text-xl font-semibold'>
                                         {post.title}
@@ -110,7 +110,7 @@ const Blog = () => {
                                     </p>
                                 </div>
                             ))}
-                        </div>
+                        </>
                     )}
                 </div>
             </div>
