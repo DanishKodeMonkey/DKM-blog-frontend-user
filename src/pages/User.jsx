@@ -90,7 +90,7 @@ const UserPage = () => {
                             className='form-input'
                         />
                     </div>
-                    <div>
+                    <div className='mb-4'>
                         <label
                             htmlFor='lastName'
                             className='form-label'
@@ -105,7 +105,7 @@ const UserPage = () => {
                             className='form-input'
                         />
                     </div>
-                    <div>
+                    <div className='mb-4'>
                         <label
                             htmlFor='email'
                             className='form-label'
@@ -120,7 +120,7 @@ const UserPage = () => {
                             className='form-input'
                         />
                     </div>
-                    <div>
+                    <div className='mb-4'>
                         <label
                             htmlFor='password'
                             className='form-label'
