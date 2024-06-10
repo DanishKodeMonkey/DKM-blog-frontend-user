@@ -23,29 +23,49 @@ const SignIn = () => {
         }
     };
     return (
-        <div>
-            <h1>Sign in</h1>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor='username'>Username</label>
+        <div className='flex flex-col items-center bg-white w-full p-4'>
+            <h1 className='text-3xl font-bold mb-6'>Sign in</h1>
+            <form
+                onSubmit={handleSubmit}
+                className='w-full max-w-md bg-gray-100 p-6 rounded-lg shadow-md'
+            >
+                <div className='mb-4'>
+                    <label
+                        htmlFor='username'
+                        className='form-label'
+                    >
+                        Username
+                    </label>
                     <input
                         id='username'
                         type='text'
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
+                        className='form-input'
                     />
                 </div>
-                <div>
-                    <label htmlFor='password'>password</label>
+                <div className='mb-4'>
+                    <label
+                        htmlFor='password'
+                        className='form-label'
+                    >
+                        password
+                    </label>
                     <input
                         id='password'
                         type='password'
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                        className='form-input'
                     />
                 </div>
                 {error && <p>{error}</p>}
-                <button type='submit'>Sign in</button>
+                <button
+                    type='submit'
+                    className='w-full bg-teal-500 text-white font-bold py-2 px-4 rounded hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-opacity-50 transition ease-in-out duration-150'
+                >
+                    Sign in
+                </button>
             </form>
         </div>
     );
