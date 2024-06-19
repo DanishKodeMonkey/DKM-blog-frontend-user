@@ -6,7 +6,6 @@ const API_URL = import.meta.env.VITE_API_URL;
 // Security: Check for, and include JWT token on API requests
 // Use for protected API routes.
 const getAuthHeaders = () => {
-    console.warn('getAuthHeaders trigger---');
     const token = localStorage.getItem('token');
     // Was a token found? If so attach, otherwise dont.
     return token ? { Authorization: `Bearer ${token}` } : {};
@@ -14,13 +13,11 @@ const getAuthHeaders = () => {
 
 // Function to get user ID from the token
 const getUserIdFromToken = () => {
-    console.warn('getUserIdFromToken triggere---');
     const token = localStorage.getItem('token');
 
     if (token) {
-        console.log('decoding token...');
         const decodedToken = jwtDecode(token);
-        console.log('Token decoded');
+
         return decodedToken.sub;
     } else {
         console.error('Token failed to retrieve');
@@ -59,9 +56,8 @@ export const createUser = async (user) => {
 
 // Fetch current users information
 export const fetchCurrentUser = async () => {
-    console.warn('FetchCurrentUser triggered ---');
     const userId = getUserIdFromToken();
-    console.log('Received userId');
+
     if (!userId) {
         console.error('UserId from getUserIdFromToken failed');
         throw new Error('User ID not found in token');

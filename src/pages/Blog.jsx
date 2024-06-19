@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { fetchAllBlogPosts } from '../api';
 import DefaultArticle from '../components/DefaultArticle';
 import BlogSidebar from '../components/BlogSidebar';
+import parse from 'html-react-parser';
 
 // custom hook
 const Blog = () => {
@@ -14,7 +15,6 @@ const Blog = () => {
         const getPosts = async () => {
             try {
                 const data = await fetchAllBlogPosts();
-                console.log(data);
                 setPosts(data);
             } catch (err) {
                 setError(err.message);
@@ -29,8 +29,8 @@ const Blog = () => {
         setSelectedPost(post);
     };
 
-    if (loading) return <p>Loading... please wait.</p>;
-    if (error) return <p>A network error was encountered.</p>;
+    if (loading) return <div>Loading... please wait.</div>;
+    if (error) return <div>A network error was encountered.</div>;
     if (posts <= 0) return <DefaultArticle />;
 
     return (
@@ -59,7 +59,9 @@ const Blog = () => {
                                     {selectedPost.title}
                                 </h2>
 
-                                <p className='mt-2 mb-4'>{selectedPost.text}</p>
+                                <p className='mt-2 mb-4'>
+                                    {parse(selectedPost.text)}
+                                </p>
                                 <h4 className='text-sm text-slate-800'>
                                     author - {selectedPost.author.username}
                                 </h4>
@@ -90,7 +92,7 @@ const Blog = () => {
                             </div>
                         </div>
                     ) : (
-                        <>
+                        <div className='flex flex-col w-full'>
                             {posts.map((post) => (
                                 <div
                                     key={post._id}
@@ -102,7 +104,7 @@ const Blog = () => {
                                     <h4 className='text-sm text-slate-800'>
                                         {post.author.username}
                                     </h4>
-                                    <p className='mt-2'>{post.text}</p>
+                                    <p className='mt-2'>{parse(post.text)}</p>
                                     <p className='text-sm text-gray-500'>
                                         {new Date(
                                             post.timestamp
@@ -110,7 +112,7 @@ const Blog = () => {
                                     </p>
                                 </div>
                             ))}
-                        </>
+                        </div>
                     )}
                 </div>
             </div>
