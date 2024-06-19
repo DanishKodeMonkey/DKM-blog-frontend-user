@@ -30,3 +30,7 @@ The application makes rich use of React's context API and hooks for state manage
 ## Style
 
 TailwindCSS has been used to leverage powerful CSS class rules to streamline the styling of the project.
+
+# Check it out
+
+[Check it out here!](https://dkm-blog-frontend-user.pages.dev/blog)
