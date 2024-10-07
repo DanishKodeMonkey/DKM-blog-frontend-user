@@ -27,7 +27,7 @@ const SignUp = () => {
                 password,
             });
             console.log(response);
-            navigate('/signin');
+            navigate('/user/signin');
         } catch (err) {
             setError('Sign up failed');
         }
