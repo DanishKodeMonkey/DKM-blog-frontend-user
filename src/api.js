@@ -29,6 +29,9 @@ const getUserIdFromToken = () => {
 export const fetchAllBlogPosts = async () => {
     try {
         const response = await fetch(`${API_URL}/blog/posts`);
+        if (response.status === 204) {
+            return [];
+        }
         if (!response.ok) {
             throw new Error('Network response failed');
         }
@@ -91,7 +94,7 @@ export const fetchCurrentUser = async () => {
 export const updateUser = async (userData) => {
     try {
         const response = await axios.put(
-            `${API_URL}/users/${userData._id}`,
+            `${API_URL}/users/${userData.id}`,
             userData,
             { headers: getAuthHeaders() }
         );
