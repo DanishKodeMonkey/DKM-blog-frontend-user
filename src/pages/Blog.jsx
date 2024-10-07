@@ -31,7 +31,7 @@ const Blog = () => {
 
     if (loading) return <div>Loading... please wait.</div>;
     if (error) return <div>A network error was encountered.</div>;
-    if (posts <= 0) return <DefaultArticle />;
+    if (posts.length === 0) return <div>No posts found.</div>;
 
     return (
         <div className='flex bg-white w-full'>

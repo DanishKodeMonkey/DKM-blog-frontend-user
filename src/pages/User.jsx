@@ -1,11 +1,13 @@
 import { useState, useEffect, useContext } from 'react';
 import { fetchCurrentUser, updateUser } from '../api';
 import AuthContext from '../AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const UserPage = () => {
     console.warn('Entered user page, starting operation =====');
     const [userData, setUserData] = useState(null);
     const { isAuthenticated } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     useEffect(() => {
         console.warn('Starting useEffect...');
@@ -38,15 +40,16 @@ const UserPage = () => {
             last_name: form.last_name.value,
             email: form.email.value,
             password: form.password.value,
-            _id: userData._id,
+            id: userData.id,
         };
 
         try {
             console.log(
-                `Sending userData to updateUser for user ${userData._id}`,
+                `Sending userData to updateUser for user ${userData.id}`,
                 updatedUser
             );
             await updateUser(updatedUser);
+            navigate('/');
         } catch (error) {
             throw new Error('User update failed ', error);
         }
