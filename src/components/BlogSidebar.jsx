@@ -8,10 +8,10 @@ const BlogSidebar = ({ posts, onSelectPost, selectedPost }) => {
                 <ul>
                     {posts.map((post) => (
                         <li
-                            key={post._id}
+                            key={post.id}
                             onClick={() => onSelectPost(post)}
                             className={`p-2 mb-2 rounded cursor-pointer ${
-                                selectedPost && selectedPost._id === post._id
+                                selectedPost && selectedPost.id === post.id
                                     ? 'bg-teal-300 text-black'
                                     : 'bg-gray-200 hover:bg-gray-300'
                             }`}

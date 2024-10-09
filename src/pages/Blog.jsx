@@ -51,7 +51,7 @@ const Blog = () => {
                 <div className='flex'>
                     {selectedPost ? (
                         <div
-                            key={selectedPost._id}
+                            key={selectedPost.id}
                             className='mt-2 mb-4 p-2 border rounded-lg bg-slate-100 w-full'
                         >
                             <div className='text-center'>
@@ -59,9 +59,9 @@ const Blog = () => {
                                     {selectedPost.title}
                                 </h2>
 
-                                <p className='mt-2 mb-4'>
+                                <div className='mt-2 mb-4'>
                                     {parse(selectedPost.text)}
-                                </p>
+                                </div>
                                 <h4 className='text-sm text-slate-800'>
                                     author - {selectedPost.author.username}
                                 </h4>
@@ -77,11 +77,11 @@ const Blog = () => {
                                 </h3>
                                 {selectedPost.comments.map((comment) => (
                                     <div
-                                        key={comment._id}
+                                        key={comment.id}
                                         className='mt-2 mb-4 p-2 border rounded-lg bg-gray-50 max-w-lg'
                                     >
                                         <h4>{comment.author.username}</h4>
-                                        <p>{comment.text}</p>
+                                        <div>{comment.text}</div>
                                         <p className='text-sm text-gray-500'>
                                             {new Date(
                                                 comment.timestamp
@@ -95,7 +95,7 @@ const Blog = () => {
                         <div className='flex flex-col w-full'>
                             {posts.map((post) => (
                                 <div
-                                    key={post._id}
+                                    key={post.id}
                                     className='mt-2 mb-4 p-2 border rounded-lg bg-slate-100 w-full'
                                 >
                                     <h2 className='text-xl font-semibold'>
@@ -104,7 +104,9 @@ const Blog = () => {
                                     <h4 className='text-sm text-slate-800'>
                                         {post.author.username}
                                     </h4>
-                                    <p className='mt-2'>{parse(post.text)}</p>
+                                    <div className='mt-2'>
+                                        {parse(post.text)}
+                                    </div>
                                     <p className='text-sm text-gray-500'>
                                         {new Date(
                                             post.timestamp
